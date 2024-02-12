@@ -1,11 +1,17 @@
 package com.example.demo.student;
 
-import jakarta.persistence.*;
-import java.time.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.Period;
 @Entity
 @Table
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Student {
     @Id
     @SequenceGenerator(
@@ -24,16 +30,6 @@ public class Student {
     private LocalDate dob;
     private String email;
 
-    public Student(Long id,
-                   String name,
-                   LocalDate dob,
-                   String email) {
-        this.name = name;
-        this.id = id;
-        this.dob = dob;
-        this.email = email;
-    }
-
     public Student(String name,
                    LocalDate dob,
                    String email) {
@@ -42,8 +38,6 @@ public class Student {
         this.email = email;
     }
 
-    public Student() {
-    }
 
     public String getName() {
         return name;
